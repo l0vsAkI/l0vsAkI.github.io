@@ -7,6 +7,8 @@ duration: 15min
 
 [[toc]]
 
+今天在码代码的时候遇到了有关元素定位的问题
+
 ## 概述
 
 围绕 Neovim 来配置前端开发环境, 通过少数的环境安装能获得最大的 vim 开发体验.
@@ -54,6 +56,25 @@ $env:HTTPS_PROXY="http://127.0.0.1:1080"
 
 ```hosts
 151.101.84.133  raw.githubusercontent.com
+```
+
+### Failed to connect to 127.0.0.1 port 1080: Connection refused
+
+这是一个坑, 之前使用 Sourcetree 源代码管理工具的时候在代理中勾选了注入到 Git, 导致修改
+了 Git 的全局代理.
+
+- 查看
+
+```cmd
+git config --global http.proxy
+git config --global https.proxy
+```
+
+- 取消 Git 全局代理
+
+```cmd
+git config --global --unset http.proxy
+git config --global --unset httpx.proxy
 ```
 
 ## 环境依赖
