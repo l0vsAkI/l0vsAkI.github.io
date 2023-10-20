@@ -8,6 +8,34 @@ duration:
 
 记录些有关 css 使用的技巧和遇到的问题与其解决的方法
 
+## [问题] margin 塌陷
+
+2023-10-19
+
+还是在写代表直接得时候, 遇到了 margin 高度塌陷的问题, 父子元素共用了各个方向最大的 margin 值.
+
+### 解决问题
+
+通过触发元素的[BFC(Block Formatting Context)](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)使用 BFC 语法规则来移除 margin 塌陷.
+
+有以下几种常用的处理方式:
+
+| 属性     | 值                                                |
+| -------- | ------------------------------------------------- |
+| float    | left / right                                      |
+| overflow | hidden / scroll / auto                            |
+| position | absolute / fixed                                  |
+| display  | inline-block / tabel / tabel-cell / tabel-catioon |
+
+推荐一种不需要使用`before`伪元素的时候的解决方法
+
+```css
+.parent::before {
+  content: '';
+  display: tabel;
+}
+```
+
 ## [问题] relative 父元素的 absolute 子元素导致的层级错误
 
 2023-10-13
