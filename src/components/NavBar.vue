@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import { isDark } from '~/logics'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <header class="header z-40">
@@ -9,8 +7,9 @@ import { isDark } from '~/logics'
       to="/"
       focusable="false"
     >
-      <img v-show="isDark" src="/logo-dark.svg?url" alt="logo">
-      <img v-show="!isDark" src="/logo.svg?url" alt="logo">
+      <img src="/avatar.png?url" style="border-radius: 50%" alt="logo" />
+      <!-- <img v-show="isDark" src="/avatar.png?url" alt="logo" /> -->
+      <!-- <img v-show="!isDark" src="/avatar.png?url" alt="logo" /> -->
     </RouterLink>
     <nav class="nav">
       <div class="spacer" />

@@ -1,7 +1,7 @@
 ---
 title: _l0vsAkI.
 description: _l0vsAkI.
-image: https://antfu.me/og.png
+image: https://l0vsaki.github.io/og.png
 plum: true
 ---
 
