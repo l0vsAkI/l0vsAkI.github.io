@@ -161,3 +161,20 @@ _desc_ 是 static 定位, 与其他指定了定位的元素不是同一大的层
   text-overflow: ellipsis;
 }
 ```
+
+---
+
+## [技巧] 伪元素装饰线
+
+```scss
+.parent {
+  &::before {
+    content: '';
+    display: inline-block; // 需要指定为block, 非block无内容不显示
+    vertical-align: middle; // 调整伪元素的中部对准(父元素的基线加上父元素小写字母x的height的一半)
+    width: 4px;
+    height: 20px;
+    background: #1482f0;
+  }
+}
+```
