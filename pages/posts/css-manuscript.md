@@ -8,6 +8,85 @@ duration:
 
 记录些有关 css 使用的技巧和遇到的问题与其解决的方法
 
+## [问题] fixed 定位的容器自身横向滚动内容被裁剪
+
+2023-12-11
+
+基本代码
+
+```tsx
+<View className="p-4 flex gap-2 overflow-x-scroll no-scrollbar bg-white">
+  {data.map((item) => (
+    <View
+      className={`py-1 px-3 color-black bg-gray-200 whitespace-nowrap rounded-sm ${
+        item.id === typeId ? 'activeType' : ''
+      }`}
+      key={item.id}
+    >
+      {item.name}
+    </View>
+  ))}
+</View>
+```
+
+### 遇到问题
+
+直接将容器调整为 fixed 定位
+
+```tsx
+<View className="fixed p-4 flex gap-2 overflow-x-scroll no-scrollbar bg-white">
+  {data.map((item) => (
+    <View
+      className={`py-1 px-3 color-black bg-gray-200 whitespace-nowrap rounded-sm ${
+        item.id === typeId ? 'activeType' : ''
+      }`}
+      key={item.id}
+    >
+      {item.name}
+    </View>
+  ))}
+</View>
+```
+
+1. 首先是直接给容器添加 fixed 定位无法水平滚动, 原因是脱离了文档流后无法根据父元素指定高度.
+   通过**给容器指定高度**使内部子元素可以横向滚动
+
+```tsx
+<View className="fixed w-full p-4 flex gap-2 overflow-x-scroll no-scrollbar bg-white">
+  {data.map((item) => (
+    <View
+      className={`py-1 px-3 color-black bg-gray-200 whitespace-nowrap rounded-sm ${
+        item.id === typeId ? 'activeType' : ''
+      }`}
+      key={item.id}
+    >
+      {item.name}
+    </View>
+  ))}
+</View>
+```
+
+2. 容器自身指定有 padding, 导致内部元素尾部内容被裁切.可以**再添加一个容器专门作为 fixed 容器**,
+   再来承载原本容器中的内容
+
+   ```tsx
+   <View className="fixed w-full">
+     <View className="p-4 flex gap-2 overflow-x-scroll no-scrollbar bg-white">
+       {dataOfInformationTypeList?.data.map((item) => (
+         <View
+           className={`py-1 px-3 color-black bg-gray-200 whitespace-nowrap rounded-sm ${
+             item.id === typeId ? 'activeType' : ''
+           }`}
+           key={item.id}
+           onClick={() => handleSelectType(item.id)}
+         >
+           {item.name}
+         </View>
+       ))}
+     </View>
+   </View>
+   ```
+
 ## [问题] margin 塌陷
 
 2023-10-19
