@@ -15,6 +15,7 @@ duration: 2min
 ## 解决方法
 
 1. 禁用浏览器跨域检测
+2. 修改域名后缀
 
 ### 禁用浏览器跨域策略
 
@@ -31,5 +32,12 @@ duration: 2min
 
 完整的目标属性值如下:
 `"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --disable-web-security --user-data-dir=C:\MyChromeDevUserData`
+
+### 修改域名后缀
+
+主域下的子域名也会收到同源策略的限制, 可以通过修改`document.domain`使浏览器认为是同源的
+
+eg: A 的地址为https://orders.example.com, B 的地址为https://example.com,
+将 A 的`document.domain`修改为https://example.com使浏览器认为是同源的
 
 To be continued...
