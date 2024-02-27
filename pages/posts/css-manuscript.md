@@ -8,6 +8,70 @@ duration:
 
 记录些有关 css 使用的技巧和遇到的问题与其解决的方法
 
+## [技巧] 滚动吸附的实现与其实际应用
+
+2024-2-27
+
+项目需求在小程序上展示宫格功能模块, 同时模块实现类似轮播图的横向滑动翻页效果.
+效果如下图:
+
+x x x x x | x x x x x
+x x x x x
+o .
+
+### 实现方案
+
+通过 css 的滚动吸附功能特性来实现, 关键属性为:
+
+1. `scroll-snap-type`
+2. `scroll-snap-align`
+
+#### `scroll-snap-type` 配置在包含可滚动项目的容器中
+
+> scroll-snap-type 属性需要知道在哪个方向上有滚动吸附。方向可以是 x、y 或者逻辑对应关系 block、inline。还可以用关键字 both 使两个轴都有滚动吸附。
+
+> 你还可以传入关键字 mandatory 或 proximity。关键字 mandatory 告诉浏览器无论滚动到哪个位置，内容都必须吸附到特定的点，而关键字 proximity 意味着内容可以吸附而不是必须吸附到点上。
+
+#### `scroll-snap-align` 配置在滚动容器中需要对其的元素上
+
+> scroll-snap-align 属性的有效值包括 start、end、center 和 none。这些值用于标示内容应当吸附到滚动容器中的哪个点。
+
+### 代码
+
+```wxml
+<view class="grid-function">
+  <view class="grid-item" wx:for="{{15}}" wx:key="index">
+    <image class="grid-item__icon" src="{{fileUrl+'/overlay.png'}}"></image>
+    <view class="grid-item__text">文化展陈</view>
+  </view>
+</view>
+```
+
+```wxss
+.grid-function {
+  display: grid;
+  overflow-x: auto; /* 容器必须为可滚动容器 */
+  grid-template-columns: repeat(10, 20%);
+  grid-template-rows: repeat(2, 1fr);
+  scroll-snap-type: x mandatory; /* 容器配置 */
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  align-items: center;
+}
+
+.grid-item:nth-child(5) {
+  scroll-snap-align: end; /* 子元素吸附点配置 */
+}
+
+.grid-item:nth-child(10) {
+  scroll-snap-align: end; /* 5个为1页, 只在第5与第10个元素末尾吸附 */
+}
+```
+
 ## [问题] fixed 定位的容器自身横向滚动内容被裁剪
 
 2023-12-11
@@ -165,7 +229,7 @@ _desc_ 是 static 定位, 与其他指定了定位的元素不是同一大的层
 基础布局
 
 ```html
-<article class="card" style="width:300px">
+<article class="card" style="width: 300px">
   <div class="ratable-img">
     <img src="image/9.jfif" alt="" />
   </div>
