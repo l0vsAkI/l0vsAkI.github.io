@@ -1,5 +1,5 @@
 ---
-title: window 前端开发环境配置
+title: 我的Neovim
 date: 2023-4-17
 lang: en
 duration: 15min
@@ -7,39 +7,16 @@ duration: 15min
 
 [[toc]]
 
-今天在码代码的时候遇到了有关元素定位的问题
-
 ## 概述
 
-围绕 Neovim 来配置前端开发环境, 通过少数的环境安装能获得最大的 vim 开发体验.
+围绕 Neovim 来配置开发环境, 通过少数的环境安装能获得最大的 vim 模式开发体验.
 
-> 此为 windows 平台的 vim 操作模式开发专用配置
-
-## 为什么不使用 VS code 或 WebStorm ?
-
-VS code 与 WebStorm 的开发体验并不流畅
-
-### 关于 VS code
-
-- 插件会拖慢编辑器的启动与响应速度
-- 插件之间会相互阻塞导致 buffer 无响应
-- 糟糕的 vim 操作
-
-### 关于 WebStorm
-
-- 启动耗时过长
-- 操作有粘滞感
+IDE 配置同步在 github 仓库中, 安装之后开箱即用. 新增语言支持仅需在 Mason(LSP 包管理器)
+与 treesitter(语法解析器)中下载相应的语言支持即可.
 
 ## 那一道墙
 
 终端的请求不会经过操作系统配置的代理, 需要根据使用的不同命令行工具单独配置代理
-
-**cmd**
-
-```cmd
-set http_proxy=http://127.0.0.1:1080
-set https_proxy=http://127.0.0.1:1080
-```
 
 **PowerShell**
 
@@ -48,22 +25,21 @@ $env:HTTP_PROXY="http://127.0.0.1:1080"
 $env:HTTPS_PROXY="http://127.0.0.1:1080"
 ```
 
-> 上述操作为单次操作, 退出命令行工具后会清除代理配置
+**cmd**
 
-**部分网址挂了代理依旧链接不上**
-
-如`raw.githubusercontent.com`, 可在 hosts 中单独配置域名映射
-
-```hosts
-151.101.84.133  raw.githubusercontent.com
+```cmd
+set http_proxy=http://127.0.0.1:1080
+set https_proxy=http://127.0.0.1:1080
 ```
 
-### Failed to connect to 127.0.0.1 port 1080: Connection refused
+> 上述操作为单次操作, 退出命令行工具后会清除代理配置
+
+### [报错] Failed to connect to 127.0.0.1 port 1080: Connection refused
 
 这是一个坑, 之前使用 Sourcetree 源代码管理工具的时候在代理中勾选了注入到 Git, 导致修改
 了 Git 的全局代理.
 
-- 查看
+- 查看 Git 代理配置
 
 ```cmd
 git config --global http.proxy
@@ -81,19 +57,37 @@ git config --global --unset httpx.proxy
 
 1. [**Neovim**](https://neovim.io/)
 
-使用命令行工具安装已方便更新
+使用命令行工具安装以方便更新
 
 ```PowerShell
 winget install Neovim.Neovim
 ```
 
-2. [**MinGW**](https://www.mingw-w64.org/) - Neovim 的代码高亮插件依赖
+2. [lazygit](https://github.com/jesseduffield/lazygit) - 简洁的终端 Git UI (可选)
+
+```PowerShell
+winget install -e --id=JesseDuffield.lazygit
+```
+
+3. [ripgrep](https://github.com/BurntSushi/ripgrep) - telescope 插件的 live grep 依赖 (可选)
+
+```PowerShell
+winget install BurntSushi.ripgrep.MSVC
+```
+
+4. [fd](https://github.com/sharkdp/fd) - telescope 插件的文件查找依赖 (可选)
+
+```PowerShell
+choco install fd
+```
+
+5. [**MinGW**](https://www.mingw-w64.org/) - 用于 treeistter 编译解析器
 
 > MinGW 的全称是：Minimalist GNU on Windows 。它实际上是将经典的开源 C 语言 编译器 GCC 移植到了 Windows 平台下，并且包含了 Win32API ，因此可以将源代码编译为可在 Windows 中运行的可执行程序。
 
-3. [**nvm**](https://github.com/coreybutler/nvm-windows) - node 版本管理工具
+6. [**nvm**](https://github.com/coreybutler/nvm-windows) - node 版本管理工具, 用于 treeistter 下载语法解析器
 
-4. [**im-select**](https://github.com/daipeihust/im-select) - vim 中英文输入切换工具
+7. [**im-select**](https://github.com/daipeihust/im-select) - vim 中英文输入切换工具 (可选)
 
 > 在`/nvim/environment/`文件夹中有已下载好的安装程式
 
@@ -130,7 +124,7 @@ nvm use <node version>
 
 ### Step 3
 
-1. [开启系统全局代理](./开发环境#环境依赖)
+1. [使用魔法](./why-neovim#那一道墙)
 2. 在终端中配置命令行代理
 3. 进入 Neovim
 
@@ -154,6 +148,28 @@ nvim
 
 1. 在 Neovim 中通过`:Mason`命令安装 LSP 服务.
 2. 于`{pathTo}/nvim/lua/plugins/cmp.lua`中配置自动补全. _PS:可选操作_
+
+### Step Extra
+
+- 配置 im-select
+  在 C 盘根目录新建`im-select`文件夹, 然后将 nvim 仓库中`environment`文件夹下的 im-select.exe 程式拷贝至`im-select`文件夹中
+
+## 为什么不使用 VS code 或 WebStorm ?
+
+VS code 与 WebStorm 的开发体验并不流畅, 包括但不限于 buffer 切换, 文件树操作,
+代码折叠的反直觉操作等.
+
+### 关于 VS code
+
+- 插件会拖慢编辑器的启动与响应速度
+- 插件之间会相互阻塞导致 buffer 无响应
+- 糟糕的 vim 操作
+- 层出不穷的 bug
+
+### 关于 WebStorm
+
+- 启动耗时过长
+- 操作有粘滞感
 
 ## 写在最后
 
