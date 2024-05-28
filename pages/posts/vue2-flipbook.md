@@ -25,8 +25,8 @@ duration: 5min
 
 _注意!_
 
-> pdfjs-dist 在 2.2.228 版本后使用了 es2020 的语法, 而 Vue2 并不支持, 需指定包
-> 版本号为 2.2.228
+> pdfjs-dist 在 2.7.570 版本后使用了 es2020 的语法, 而 Vue2 并不支持, 需指定包
+> 版本号为 2.7.570
 
 ## 开发历程
 
@@ -87,8 +87,8 @@ export default {
 // 直接引入flipbook.js失败报错, 换用.cjs引用
 import Flipbook from 'flipbook-vue/dist/vue2/flipbook.cjs'
 
-import * as pdfjs from 'pdfjs-dist/build/pdf'
-import * as pdfjsWorker from 'pdfjs-dist/build/pdf.worker'
+import * as pdfjs from 'pdfjs-dist/es5/build/pdf'
+import * as pdfjsWorker from 'pdfjs-dist/es5/build/pdf.worker'
 pdfjs.workerSrc = pdfjsWorker // 指定pdfjs使用的worker
 
 export default {
