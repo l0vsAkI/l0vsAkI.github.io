@@ -7,28 +7,38 @@ import spotlightjs from "@spotlightjs/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [starlight({
-    title: "_l0vsAkI.",
-    social: {
-      github: "https://github.com/l0vsAkI"
-    },
-    sidebar: [{
-      label: "env",
-      autogenerate: {
-        directory: "env"
-      }
-    }, {
-      label: "dev",
-      autogenerate: {
-        directory: "dev"
-      }
-    }, {
-      label: "css",
-      autogenerate: {
-        directory: "css"
-      }
-    }]
-  }), UnoCSS({
-    injectReset: true
-  }), sentry(), spotlightjs()]
+  site: "https://l0vsAkI.github.io",
+  integrations: [
+    starlight({
+      title: "_l0vsAkI.",
+      social: {
+        github: "https://github.com/l0vsAkI",
+      },
+      sidebar: [
+        {
+          label: "env",
+          autogenerate: {
+            directory: "env",
+          },
+        },
+        {
+          label: "dev",
+          autogenerate: {
+            directory: "dev",
+          },
+        },
+        {
+          label: "css",
+          autogenerate: {
+            directory: "css",
+          },
+        },
+      ],
+    }),
+    UnoCSS({
+      injectReset: true,
+    }),
+    sentry(),
+    spotlightjs(),
+  ],
 });
