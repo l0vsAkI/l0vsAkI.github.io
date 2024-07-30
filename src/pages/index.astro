@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../layout/Layout.astro";
+---
+
+<script>
+  import Parallax from "parallax-js";
+  const parallaxInst = new Parallax(
+    document.querySelector("#parallax-container") as HTMLDivElement,
+    {
+      clipRelativeInput: true,
+    }
+  );
+  window.addEventListener("beforeunload", function () {
+    parallaxInst.destroy();
+  });
+</script>
+
+<Layout>
+  <div id="parallax-container" class="w-100vw h-100vh overflow-hidden flex">
+    <Image
+      src={`https://picsum.photos/1920/1080.webp`}
+      alt={""}
+      width={1920}
+      height={1080}
+    />
+    <div
+      class="h-100vh w-100vw flex justify-center items-center"
+      data-depth="0.2"
+    >
+      <div class="h-full flex justify-center items-center">
+        <div class="w-50vw h-50vh backdrop-blur bg-black bg-op-20"></div>
+      </div>
+    </div>
+
+    <div
+      class="h-100vh w-100vw flex justify-center items-center"
+      data-depth="0.3"
+    >
+      <div class="h-full flex justify-center items-center">
+        <h1 class="text-16">
+          深藏功与名<span class="my-nickname">_l0vsAkI.</span>
+        </h1>
+      </div>
+    </div>
+
+    <div
+      class="h-100vh w-100vw flex justify-center items-center"
+      data-depth="0.4"
+    >
+      <div class="h-full flex gap-5 justify-center items-center pt-48">
+        <div class="text-size-2xl i-game-icons-achilles-heel"></div>
+        <div class="text-size-2xl i-game-icons-battered-axe"></div>
+        <div class="text-size-2xl i-game-icons-cut-lemon"></div>
+        <div class="text-size-2xl i-game-icons-evil-book"></div>
+        <div class="text-size-2xl i-game-icons-three-keys"></div>
+        <div class="text-size-2xl i-game-icons-shark-jaws"></div>
+        <div class="text-size-2xl i-game-icons-radioactive"></div>
+        <div class="text-size-2xl i-game-icons-octopus"></div>
+        <div class="text-size-2xl i-game-icons-coiled-nail"></div>
+        <div class="text-size-2xl i-game-icons-bookmarklet"></div>
+        <div class="text-size-2xl i-game-icons-chainsaw"></div>
+        <div class="text-size-2xl i-game-icons-supersonic-bullet"></div>
+        <div class="text-size-2xl i-game-icons-thrown-charcoal"></div>
+        <div class="text-size-2xl i-game-icons-paper-boat"></div>
+        <div class="text-size-2xl i-game-icons-mouth-watering"></div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-4rem w-auto right-0 left-0 flex justify-center">
+    <a href="/overview/">
+      <div
+        class="flex gap-4 border-1px py-2 px-6 transition-all font-light cursor-pointer"
+        hover="scale-110 border-unset bg-white bg-op-50 text-black backdrop-blur-md"
+      >
+        <p class="text-xl">Move on</p>
+        <i class="border i-solar-arrow-right-broken text-3xl"></i>
+      </div></a
+    >
+  </div>
+</Layout>
+
+<style lang="scss">
+  .my-nickname {
+    position: relative;
+    font-family: "JetBrains Mono";
+    font-weight: 900;
+    background: linear-gradient(220.55deg, #00e0ee 0%, #ad00fe 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    &::after {
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 0.25rem;
+      background-color: #ad00fe;
+      background: linear-gradient(220.55deg, #00e0ee 0%, #ad00fe 100%);
+    }
+  }
+</style>
