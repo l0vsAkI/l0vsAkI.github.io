@@ -26,11 +26,14 @@ import Layout from "../layout/Layout.astro";
       height={1080}
     />
     <div
-      class="h-100vh w-100vw flex justify-center items-center"
+      class="h-100vh w-100vw flex justify-center items-center z-0 relative"
       data-depth="0.2"
     >
-      <div class="h-full flex justify-center items-center">
-        <div class="w-50vw h-50vh backdrop-blur bg-black bg-op-20"></div>
+      <div class="h-full flex justify-center items-center relative">
+        <div
+          class="w-50vw h-30vh bg-black bg-op-30 backdrop-blur-md absolute z-1 translate-z-0"
+        >
+        </div>
       </div>
     </div>
 
