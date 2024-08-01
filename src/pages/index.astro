@@ -15,22 +15,6 @@ import Layout from "../layout/Layout.astro";
   window.addEventListener("beforeunload", function () {
     parallaxInst.destroy();
   });
-
-  const paststoneDom: HTMLDivElement = document.querySelector("#pathstone")!;
-  const paststoneIconDom: HTMLElement =
-    document.querySelector("#paststoneIcon")!;
-  paststoneDom.onmouseenter = (e) => {
-    paststoneIconDom.classList.replace(
-      "i-solar-arrow-up-broken",
-      "i-emojione-monotone-footprints"
-    );
-  };
-  paststoneDom.onmouseleave = (e) => {
-    paststoneIconDom.classList.replace(
-      "i-emojione-monotone-footprints",
-      "i-solar-arrow-up-broken"
-    );
-  };
 </script>
 
 <Layout>
@@ -52,8 +36,8 @@ import Layout from "../layout/Layout.astro";
       data-depth="0.3"
     >
       <div class="h-full flex justify-center items-center">
-        <h1 class="text-16 ">
-          深藏功与名<span class="my-nickname ">_l0vsAkI.</span>
+        <h1 class="text-16">
+          深藏功与名<span class="my-nickname">_l0vsAkI.</span>
         </h1>
       </div>
     </div>
