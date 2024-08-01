@@ -20,14 +20,15 @@ import Layout from "../layout/Layout.astro";
 <Layout>
   <div id="parallax-container" class="w-100vw h-100vh overflow-hidden relative">
     <Image
+      class="w-100vw h-100vh object-cover"
       src={`https://picsum.photos/1920/1080.webp`}
       alt={""}
       width={1920}
       height={1080}
     />
     <div
-      class="w-50vw h-30vh bg-black bg-op-20 backdrop-blur-md translate-z-0 absolute top-0"
-      style="margin-left: calc(25vw);margin-top: 35vh;"
+      class="w-80vw h-50vh bg-black bg-op-20 backdrop-blur-md translate-z-0 absolute top-0 ml-10vw mt-25vh"
+      md="w-50vw h-30vh bg-black bg-op-20 backdrop-blur-md translate-z-0 absolute top-0 ml-25vw mt-35vh"
       data-depth="0.2"
     >
     </div>
@@ -35,10 +36,15 @@ import Layout from "../layout/Layout.astro";
       class="h-100vh w-100vw flex justify-center items-center absolute top-0"
       data-depth="0.3"
     >
-      <div class="h-full flex justify-center items-center">
-        <h1 class="text-16">
+      <div
+        class="w-full h-full flex flex-col gap-4 items-center justify-center"
+        md="h-full flex justify-center items-center"
+      >
+        <h1 class="text-16 hidden" md="block">
           深藏功与名<span class="my-nickname">_l0vsAkI.</span>
         </h1>
+        <h1 class="text-12" md="hidden">深藏功与名</h1>
+        <h1 class="my-nickname inline-block text-12" md="hidden">_l0vsAkI.</h1>
       </div>
     </div>
 
@@ -46,22 +52,43 @@ import Layout from "../layout/Layout.astro";
       class="h-100vh w-100vw flex justify-center items-center absolute top-0"
       data-depth="0.4"
     >
-      <div class="h-full flex gap-5 justify-center items-center pt-48">
+      <div
+        class="h-full flex gap-5 justify-center items-center pt-72"
+        md="pt-48"
+      >
         <div class="text-size-2xl i-game-icons-achilles-heel"></div>
         <div class="text-size-2xl i-game-icons-battered-axe"></div>
         <div class="text-size-2xl i-game-icons-cut-lemon"></div>
         <div class="text-size-2xl i-game-icons-evil-book"></div>
         <div class="text-size-2xl i-game-icons-three-keys"></div>
-        <div class="text-size-2xl i-game-icons-shark-jaws"></div>
-        <div class="text-size-2xl i-game-icons-radioactive"></div>
-        <div class="text-size-2xl i-game-icons-octopus"></div>
-        <div class="text-size-2xl i-game-icons-coiled-nail"></div>
-        <div class="text-size-2xl i-game-icons-bookmarklet"></div>
-        <div class="text-size-2xl i-game-icons-chainsaw"></div>
-        <div class="text-size-2xl i-game-icons-supersonic-bullet"></div>
-        <div class="text-size-2xl i-game-icons-thrown-charcoal"></div>
-        <div class="text-size-2xl i-game-icons-paper-boat"></div>
-        <div class="text-size-2xl i-game-icons-mouth-watering"></div>
+        <div md="block" class="hidden text-size-2xl i-game-icons-shark-jaws">
+        </div>
+        <div md="block" class="hidden text-size-2xl i-game-icons-radioactive">
+        </div>
+        <div md="block" class="hidden text-size-2xl i-game-icons-octopus"></div>
+        <div md="block" class="hidden text-size-2xl i-game-icons-coiled-nail">
+        </div>
+        <div md="block" class="hidden text-size-2xl i-game-icons-bookmarklet">
+        </div>
+        <div md="block" class="hidden text-size-2xl i-game-icons-chainsaw">
+        </div>
+        <div
+          md="block"
+          class="hidden text-size-2xl i-game-icons-supersonic-bullet"
+        >
+        </div>
+        <div
+          md="block"
+          class="hidden text-size-2xl i-game-icons-thrown-charcoal"
+        >
+        </div>
+        <div md="block" class="hidden text-size-2xl i-game-icons-paper-boat">
+        </div>
+        <div
+          md="block"
+          class="hidden text-size-2xl i-game-icons-mouth-watering"
+        >
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +124,10 @@ import Layout from "../layout/Layout.astro";
       height: 0.25rem;
       background-color: #ad00fe;
       background: linear-gradient(220.55deg, #00e0ee 0%, #ad00fe 100%);
+
+      @media (max-width: 768px) {
+        height: 0.1rem;
+      }
     }
   }
 </style>
