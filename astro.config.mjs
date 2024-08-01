@@ -34,6 +34,10 @@ export default defineConfig({
           },
         },
       ],
+      components: {
+        PageFrame: "./src/components/PageFrame.astro",
+      },
+      customCss: ["./src/styles/custom.css"],
     }),
     UnoCSS({
       injectReset: true,
