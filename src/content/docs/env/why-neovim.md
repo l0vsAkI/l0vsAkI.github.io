@@ -16,9 +16,9 @@ IDE 配置同步在 github 仓库中, 安装之后开箱即用. 新增语言支�
 
 终端的请求不会经过操作系统配置的代理, 需要根据使用的不同命令行工具单独配置代理
 
-**PowerShell**
+**cmd**
 
-```PowerShell
+```cmd
 $env:HTTP_PROXY="http://127.0.0.1:1080"
 $env:HTTPS_PROXY="http://127.0.0.1:1080"
 ```
@@ -57,25 +57,25 @@ git config --global --unset httpx.proxy
 
 使用命令行工具安装以方便更新
 
-```PowerShell
+```cmd
 winget install Neovim.Neovim
 ```
 
 2. [lazygit](https://github.com/jesseduffield/lazygit) - 简洁的终端 Git UI (可选)
 
-```PowerShell
+```cmd
 winget install -e --id=JesseDuffield.lazygit
 ```
 
 3. [ripgrep](https://github.com/BurntSushi/ripgrep) - telescope 插件的 live grep 依赖 (可选)
 
-```PowerShell
+```cmd
 winget install BurntSushi.ripgrep.MSVC
 ```
 
 4. [fd](https://github.com/sharkdp/fd) - telescope 插件的文件查找依赖 (可选)
 
-```PowerShell
+```cmd
 choco install fd
 ```
 

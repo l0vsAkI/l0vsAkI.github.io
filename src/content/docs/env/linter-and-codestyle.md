@@ -40,67 +40,67 @@ Prettier 便是其中的佼佼者,
 
 ESLint 的配置十分的简单, 在项目根目录中执行命令:
 
-```PowerShell
+```cmd
 npm init @eslint/config
 ```
 
 然后根据项目架构, 跟随 CLI 创建基础配置
 
-```PowerShell
+```cmd
 ? How would you like to use ESLint? ...
   To check syntax only
   To check syntax and find problems
 > To check syntax, find problems, and enforce code style
 ```
 
-```PowerShell
+```cmd
 ? What type of modules does your project use? ...
 > JavaScript modules (import/export)
   CommonJS (require/exports)
   None of these
 ```
 
-```PowerShell
+```cmd
 ? Which framework does your project use? ...
 > React
   Vue.js
   None of these
 ```
 
-```PowerShell
+```cmd
 ? Does your project use TypeScript? » No / Yes
 ```
 
-```PowerShell
+```cmd
 ? Where does your code run? ...  (Press <space> to select, <a> to toggle all, <i> to invert selection)
 √ Browser
 √ Node
 ```
 
-```PowerShell
+```cmd
 ? How would you like to define a style for your project? ...
 > Use a popular style guide
   Answer questions about your style
 ```
 
-```PowerShell
+```cmd
 ? Which style guide do you want to follow? ...
 > Standard: https://github.com/standard/eslint-config-standard-with-typescript
   XO: https://github.com/xojs/eslint-config-xo-typescript
 ```
 
-```PowerShell
+```cmd
 ? What format do you want your config file to be in? ...
 > JavaScript
   YAML
   JSON
 ```
 
-```PowerShell
+```cmd
 ? Would you like to install them now? » No / Yes
 ```
 
-```PowerShell
+```cmd
 ? Which package manager do you want to use? ...
 > npm
   yarn
@@ -111,17 +111,17 @@ npm init @eslint/config
 
 使用包管理工具安装 Prettier
 
-```PowerShell [npm]
+```cmd [npm]
 npm install --save-dev --save-exact prettier
 ```
 
-```PowerShell [yarn]
+```cmd [yarn]
 yarn add --dev --exact prettier
 ```
 
 在项目根目录创建 Prettier 配置文件
 
-```PowerShell
+```cmd
 echo {}> .prettierrc.json
 ```
 

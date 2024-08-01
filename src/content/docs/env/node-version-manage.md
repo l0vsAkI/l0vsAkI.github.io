@@ -25,7 +25,7 @@ Fast Node Manager
 
 windows 系统直接通过 winget 安装
 
-```powershell
+```cmd
 winget install Schniz.fnm
 ```
 
@@ -35,13 +35,13 @@ windows 中直接将 fnm 配置写入到终端配置文件中
 
 1. 在终端运行命令:
 
-```powershell
+```cmd
 notepad $profile
 ```
 
 2. 将 fnm 配置加入到终端配置文件中:
 
-```powershell
+```cmd
 fnm env --use-on-cd | Out-String | Invoke-Expression
 fnm env --corepack-enabled | Out-String | Invoke-Expression
 fnm env --node-dist-mirror https://registry.npmmirror.com  | Out-String | Invoke-Expression
@@ -57,7 +57,7 @@ fnm env --node-dist-mirror https://registry.npmmirror.com  | Out-String | Invoke
 
 每个项目均只需要在项目根目录下添加`.node-version`文件, 并在文件中直接记录 node 版本号即可.
 
-```powershell
+```cmd
 echo 20 > .node-version
 ```
 
