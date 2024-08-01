@@ -36,6 +36,7 @@ export default defineConfig({
       ],
       components: {
         PageFrame: "./src/components/PageFrame.astro",
+        SiteTitle: "./src/components/SiteTitle.astro",
       },
       customCss: ["./src/styles/custom.css"],
     }),
