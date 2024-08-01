@@ -18,7 +18,7 @@ import Layout from "../layout/Layout.astro";
 </script>
 
 <Layout>
-  <div id="parallax-container" class="w-100vw h-100vh overflow-hidden flex">
+  <div id="parallax-container" class="w-100vw h-100vh overflow-hidden relative">
     <Image
       src={`https://picsum.photos/1920/1080.webp`}
       alt={""}
@@ -26,13 +26,13 @@ import Layout from "../layout/Layout.astro";
       height={1080}
     />
     <div
-      class="w-50vw h-30vh bg-black bg-op-20 backdrop-blur-md translate-z-0"
+      class="w-50vw h-30vh bg-black bg-op-20 backdrop-blur-md translate-z-0 absolute top-0"
       style="margin-left: calc(25vw);margin-top: 35vh;"
       data-depth="0.2"
     >
     </div>
     <div
-      class="h-100vh w-100vw flex justify-center items-center"
+      class="h-100vh w-100vw flex justify-center items-center absolute top-0"
       data-depth="0.3"
     >
       <div class="h-full flex justify-center items-center">
@@ -43,7 +43,7 @@ import Layout from "../layout/Layout.astro";
     </div>
 
     <div
-      class="h-100vh w-100vw flex justify-center items-center"
+      class="h-100vh w-100vw flex justify-center items-center absolute top-0"
       data-depth="0.4"
     >
       <div class="h-full flex gap-5 justify-center items-center pt-48">

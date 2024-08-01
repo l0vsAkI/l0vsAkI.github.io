@@ -6,7 +6,7 @@ import type { Props } from "@astrojs/starlight/props";
 const { siteTitle, siteTitleHref } = Astro.props;
 ---
 
-<a href={siteTitleHref} class="site-title sl-flex">
+<a href={siteTitleHref} class="site-title sl-flex" data-astro-reload>
   {
     config.logo && logos.dark && (
       <>
