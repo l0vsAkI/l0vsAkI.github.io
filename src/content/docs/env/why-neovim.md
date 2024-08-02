@@ -21,6 +21,7 @@ IDE 配置同步在 github 仓库中, 安装之后开箱即用. 新增语言支�
 ```cmd
 $env:HTTP_PROXY="http://127.0.0.1:1080"
 $env:HTTPS_PROXY="http://127.0.0.1:1080"
+
 ```
 
 **cmd**
