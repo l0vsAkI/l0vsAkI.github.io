@@ -119,7 +119,7 @@ nvm use <node version>
 
 ### Step 2
 
-将[neovim-config](https://github.com/rovenssiren9417/neovim-config)仓库 clone 到 nvim 文件夹
+将[neovim-config](https://github.com/l0vsAkI/neovim-config)仓库 clone 到 nvim 文件夹
 
 ### Step 3
 

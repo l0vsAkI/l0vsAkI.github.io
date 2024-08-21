@@ -44,7 +44,7 @@ notepad $profile
 ```cmd
 fnm env --use-on-cd | Out-String | Invoke-Expression
 fnm env --corepack-enabled | Out-String | Invoke-Expression
-fnm env --node-dist-mirror https://registry.npmmirror.com  | Out-String | Invoke-Expression
+fnm env --node-dist-mirror https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/ | Out-String | Invoke-Expression
 ```
 
 > 对应的配置分别为:
