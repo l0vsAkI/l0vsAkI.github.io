@@ -22,6 +22,7 @@ IDE 配置同步在 github 仓库中, 安装之后开箱即用. 新增语言支�
 $env:HTTP_PROXY="http://127.0.0.1:1080"
 $env:HTTPS_PROXY="http://127.0.0.1:1080"
 
+
 ```
 
 **cmd**
@@ -29,6 +30,7 @@ $env:HTTPS_PROXY="http://127.0.0.1:1080"
 ```cmd
 set http_proxy=http://127.0.0.1:1080
 set https_proxy=http://127.0.0.1:1080
+
 ```
 
 > 上述操作为单次操作, 退出命令行工具后会清除代理配置
@@ -43,6 +45,7 @@ set https_proxy=http://127.0.0.1:1080
 ```cmd
 git config --global http.proxy
 git config --global https.proxy
+
 ```
 
 - 取消 Git 全局代理
@@ -50,6 +53,7 @@ git config --global https.proxy
 ```cmd
 git config --global --unset http.proxy
 git config --global --unset httpx.proxy
+
 ```
 
 ## 环境依赖
@@ -105,6 +109,10 @@ choco install fd
 | Build revision | 1                   |
 
 - 安装完成后将`{pathTo}/mingw64/bin/`路径添加到系统环境变量中
+
+:::note
+可直接将环境依赖中的 MinGW 压缩包解压, 将 bin 目录添加到系统 path 中
+:::
 
 > 使用 nvm 安装 14+的 node 版本
 
