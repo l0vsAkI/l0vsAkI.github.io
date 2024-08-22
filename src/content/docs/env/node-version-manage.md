@@ -51,14 +51,26 @@ fnm env --node-dist-mirror https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/ 
 >
 > 1.  执行 cd 命令时, 检查并切换目录下的 node 版本
 > 2.  启用 corepack, 可安装 yarn 与 pnpm
-> 3.  替换包管理器下载地址为国内镜像
+> 3.  替换包管理器下载地址为国内镜像(当前为清华镜像)
 
 ### 使用
 
 每个项目均只需要在项目根目录下添加`.node-version`文件, 并在文件中直接记录 node 版本号即可.
 
-```cmd
+```cmd title='为项目指定fnm使用的node版本'
 echo 20 > .node-version
 ```
+
+```cmd title='写入当前node版本'
+node --version > .node-version
+```
+
+:::tip[配置默认node版本]
+
+```cmd title='配置默认node版本'
+fnm default 20
+```
+
+:::
 
 Fin.

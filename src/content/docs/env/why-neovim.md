@@ -131,7 +131,7 @@ nvm use <node version>
 
 ### Step 3
 
-1. [使用魔法](./why-neovim#那一道墙)
+1. [使用魔法](#那一道墙)
 2. 在终端中配置命令行代理
 3. 进入 Neovim
 
