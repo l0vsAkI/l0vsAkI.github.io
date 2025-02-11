@@ -66,31 +66,37 @@ git config --global --unset httpx.proxy
 winget install Neovim.Neovim
 ```
 
-2. [lazygit](https://github.com/jesseduffield/lazygit) - 简洁的终端 Git UI (可选)
+2. fzf - 模糊查找工具, lazyvim 14.X后为必装以替代telescope
+
+```
+winget install fzf
+```
+
+3. lazygit - 简洁的终端 Git UI (可选), 建议安装
 
 ```cmd
 winget install -e --id=JesseDuffield.lazygit
 ```
 
-3. [ripgrep](https://github.com/BurntSushi/ripgrep) - telescope 插件的 live grep 依赖 (可选)
+4. [ripgrep](https://github.com/BurntSushi/ripgrep) - telescope 插件的 live grep 依赖 (可选)
 
 ```cmd
 winget install BurntSushi.ripgrep.MSVC
 ```
 
-4. [fd](https://github.com/sharkdp/fd) - telescope 插件的文件查找依赖 (可选)
+5. [fd](https://github.com/sharkdp/fd) - telescope 插件的文件查找依赖 (可选)
 
 ```cmd
 choco install fd
 ```
 
-5. [**MinGW**](https://www.mingw-w64.org/) - 用于 treeistter 编译解析器
+6. [**MinGW**](https://www.mingw-w64.org/) - 用于 treeistter 编译解析器
 
 > MinGW 的全称是：Minimalist GNU on Windows 。它实际上是将经典的开源 C 语言 编译器 GCC 移植到了 Windows 平台下，并且包含了 Win32API ，因此可以将源代码编译为可在 Windows 中运行的可执行程序。
 
-6. [**nvm**](https://github.com/coreybutler/nvm-windows) - node 版本管理工具, 用于 treeistter 下载语法解析器
+7. [**nvm**](https://github.com/coreybutler/nvm-windows) - node 版本管理工具, 用于 treeistter 下载语法解析器
 
-7. [**im-select**](https://github.com/daipeihust/im-select) - vim 中英文输入切换工具 (可选)
+8. [**im-select**](https://github.com/daipeihust/im-select) - vim 中英文输入切换工具 (可选)
 
 > 在`/nvim/environment/`文件夹中有已下载好的安装程式
 
@@ -152,9 +158,12 @@ nvim
 ### Step 5
 
 插件安装完毕后:
+**现可直接在homepage按`x`进入<Extras>浏览自己所需要的开发语言服务安装使用, 不再需要自行安装LSP服务**
+{% aside type="caution" %}
+不再是必要操作
 
-1. 在 Neovim 中通过`:Mason`命令安装 LSP 服务.
-2. 于`{pathTo}/nvim/lua/plugins/cmp.lua`中配置自动补全. _PS:可选操作_
+> 1. 在 Neovim 中通过`:Mason`命令安装 LSP 服务.
+> 2. 于`{pathTo}/nvim/lua/plugins/cmp.lua`中配置自动补全. _PS:可选操作_ > {% /aside %}
 
 ### Step Extra
 

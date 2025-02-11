@@ -157,7 +157,22 @@ o .
 
 ### 解决问题
 
-通过触发元素的[BFC(Block Formatting Context)](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)使用 BFC 语法规则来移除 margin 塌陷.
+1. 使用`padding`或者`border`
+
+```css
+.parent {
+  padding: 1px;
+}
+```
+
+```css
+.parent {
+  border: 1px solid transparent;
+}
+```
+
+2. BFC
+   通过触发元素的[BFC(Block Formatting Context)](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)使用 BFC 语法规则来移除 margin 塌陷.
 
 有以下几种常用的处理方式:
 
@@ -168,7 +183,11 @@ o .
 | position | absolute / fixed                                  |
 | display  | inline-block / tabel / tabel-cell / tabel-catioon |
 
-推荐一种不需要使用`before`伪元素的时候的解决方法
+3. 使用Flexbox或者Grid布局
+   将父元素的布局方式改为`flex`或者`grid`
+
+4. 使用伪元素
+   推荐一种不需要使用`before`伪元素的时候的解决方法
 
 ```css
 .parent::before {

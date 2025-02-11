@@ -39,6 +39,23 @@ windows 中直接将 fnm 配置写入到终端配置文件中
 notepad $profile
 ```
 
+{% aside type="tip" %}
+如遇到报错找不到$profile地址, 可手动在配置文件夹中创建配置文件, 或者安装oh-my-posh执行初始化命令生成
+
+1. 手动在`%USERPROFILE%\Documents\WindowsPowerShell`中新建文件`Microsoft.PowerShell_profile.ps1`
+
+2. 通过oh-my-posh初始化
+
+```cmd
+// 安装oh-my-posh
+winget install JanDeDobbeleer.OhMyPosh -s winget
+
+// 创建oh-my-posh配置文件
+oh-my-posh init pwsh | Invoke-Expression
+```
+
+{% /aside %}
+
 2. 将 fnm 配置加入到终端配置文件中:
 
 ```cmd
