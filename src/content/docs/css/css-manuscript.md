@@ -300,7 +300,7 @@ _desc_ 是 static 定位, 与其他指定了定位的元素不是同一大的层
 ## [技巧] 单行文本省略
 
 ```css
-.single-ellipsis {
+.ellipsis-line-1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -312,7 +312,7 @@ _desc_ 是 static 定位, 与其他指定了定位的元素不是同一大的层
 ## [技巧] 多行文本省略
 
 ```css
-.muilt-break {
+.ellipsis-line-2 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; // 第几行的末尾省略
