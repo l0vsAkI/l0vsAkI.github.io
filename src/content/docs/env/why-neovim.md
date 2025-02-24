@@ -14,48 +14,6 @@ IDE 配置同步在 github 仓库中, 安装之后开箱即用. 新增语言支�
 
 ## 那一道墙
 
-终端的请求不会经过操作系统配置的代理, 需要根据使用的不同命令行工具单独配置代理
-
-**cmd**
-
-```cmd
-$env:HTTP_PROXY="http://127.0.0.1:1080"
-$env:HTTPS_PROXY="http://127.0.0.1:1080"
-
-
-```
-
-**cmd**
-
-```cmd
-set http_proxy=http://127.0.0.1:1080
-set https_proxy=http://127.0.0.1:1080
-
-```
-
-> 上述操作为单次操作, 退出命令行工具后会清除代理配置
-
-### [报错] Failed to connect to 127.0.0.1 port 1080: Connection refused
-
-这是一个坑, 之前使用 Sourcetree 源代码管理工具的时候在代理中勾选了注入到 Git, 导致修改
-了 Git 的全局代理.
-
-- 查看 Git 代理配置
-
-```cmd
-git config --global http.proxy
-git config --global https.proxy
-
-```
-
-- 取消 Git 全局代理
-
-```cmd
-git config --global --unset http.proxy
-git config --global --unset httpx.proxy
-
-```
-
 ## 环境依赖
 
 1. [**Neovim**](https://neovim.io/)
@@ -78,7 +36,7 @@ winget install fzf
 winget install -e --id=JesseDuffield.lazygit
 ```
 
-4. [ripgrep](https://github.com/BurntSushi/ripgrep) - telescope 插件的 live grep 依赖 (可选)
+4. [ripgrep](https://github.com/BurntSushi/ripgrep) - telescope 插件的 live grep 依赖 (可选), 建议安装
 
 ```cmd
 winget install BurntSushi.ripgrep.MSVC
