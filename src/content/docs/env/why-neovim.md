@@ -24,13 +24,13 @@ IDE 配置同步在 github 仓库中, 安装之后开箱即用. 新增语言支�
 winget install Neovim.Neovim
 ```
 
-2. fzf - 模糊查找工具, lazyvim 14.X后为必装以替代telescope
+2. [fzf](https://github.com/junegunn/fzf) - 模糊查找工具, lazyvim 14.X后为必装以替代老旧的telescope
 
 ```
 winget install fzf
 ```
 
-3. lazygit - 简洁的终端 Git UI (可选), 建议安装
+3. [lazygit](https://github.com/jesseduffield/lazygit) - 简洁的终端 Git UI (可选), 建议安装
 
 ```cmd
 winget install -e --id=JesseDuffield.lazygit
@@ -42,17 +42,17 @@ winget install -e --id=JesseDuffield.lazygit
 winget install BurntSushi.ripgrep.MSVC
 ```
 
-5. [fd](https://github.com/sharkdp/fd) - telescope 插件的文件查找依赖 (可选)
+5. [fd](https://github.com/sharkdp/fd) - 简单快速的find替代品, 用于文件查询(可选), 建议安装
 
 ```cmd
-choco install fd
+winget install sharkdp.fd
 ```
 
 6. [**MinGW**](https://www.mingw-w64.org/) - 用于 treeistter 编译解析器
 
 > MinGW 的全称是：Minimalist GNU on Windows 。它实际上是将经典的开源 C 语言 编译器 GCC 移植到了 Windows 平台下，并且包含了 Win32API ，因此可以将源代码编译为可在 Windows 中运行的可执行程序。
 
-7. [**nvm**](https://github.com/coreybutler/nvm-windows) - node 版本管理工具, 用于 treeistter 下载语法解析器
+7. node环境, 用于 下载语法解析器, LSP服务等. node版本>=14
 
 8. [**im-select**](https://github.com/daipeihust/im-select) - vim 中英文输入切换工具 (可选)
 
@@ -77,13 +77,6 @@ choco install fd
 :::note
 可直接将环境依赖中的 MinGW 压缩包解压, 将 bin 目录添加到系统 path 中
 :::
-
-> 使用 nvm 安装 14+的 node 版本
-
-```bash:line-numbers
-nvm install <node version>
-nvm use <node version>
-```
 
 ### Step 1
 
