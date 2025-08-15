@@ -12,8 +12,6 @@ duration: 15min
 IDE 配置同步在 github 仓库中, 安装之后开箱即用. 新增语言支持仅需在 Mason(LSP 包管理器)
 与 treesitter(语法解析器)中下载相应的语言支持即可.
 
-## 那一道墙
-
 ## 环境依赖
 
 1. [**Neovim**](https://neovim.io/)
